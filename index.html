@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="big5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+	<title>acFanta</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+        
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+   
+</head>
+
+<body onload="onBodyLoad()" style="overflow: hidden; height:100%; margin: 0; padding: 0;">
+
+<img src="icon/images.jpg" width="97%" height="97%">
+<p></p>
+
+<script>
+$(document).ready(function() {
+
+	var chkSYS_url = "http://58.177.246.222:8500/cfide/acTest/acFanta/acSys_proxy.cfm?method=sysStatus";
+// for debug	
+//	var chkWho_url = "http://58.177.246.222:8500/cfide/acTest/acFanta/acSys_proxy.cfm?method=sysWhoLogging&userIMEI=";
+
+// for mobile
+//	var chkWho_url = "http://58.177.246.222:8500/cfide/acTest/acFanta/acSys_proxy.cfm?method=sysWhoLogging&userIMEI="+window.device.uuid;
+	
+	var res = $.parseJSON(call3_getJSON(chkSYS_url, 3000));
+
+	setTimeout(function() {
+		if(res.VALUE == 1) {
+			window.location.href = "acMenu.html";
+		} else {
+			$("p").html("connection error");
+		}
+	},2000);
+	
+});
+
+</script>
+   
+</body>
+
+</html>

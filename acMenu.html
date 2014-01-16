@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="big5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+	<title>acFanta</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+        
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>    
+    
+    <style type="text/css">.iUData { color: green; font-size:x-small; } </style>
+        
+</head>
+
+<body onload="onBodyLoad()">
+
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>acFanta</h1>
+        </div>
+
+        <div data-role="fieldcontain" style="overflow:scroll;">
+            <div style="width:900px; height:40px;">&nbsp;&nbsp;
+            <a href="page/myTeam.html"><img src="icon/y01.png" width="40" height="40" alt="01"></a>
+            <a href="page/Points.html"><img src="icon/y02.png" width="40" height="40" alt="02"></a>
+            <a href="page/Trades.html"><img src="icon/y03.png" width="40" height="40" alt="03"></a>
+            <a href="page/Items.html"><img src="icon/y04.png" width="40" height="40" alt="04"></a>
+            <a href="page/Setting.html"><img src="icon/y05.png" width="40" height="40" alt="05"></a>
+            <a href="page/Leagues.html"><img src="icon/y06.png" width="40" height="40" alt="06"></a>
+            <a href="page/Fixtures.html"><img src="icon/y07.png" width="40" height="40" alt="07"></a>
+            <a href="page/Stat.html"><img src="icon/y08.png" width="40" height="40" alt="08"></a>
+			<a href="page/Help.html"><img src="icon/y09.png" width="40" height="40" alt="09"></a>
+            <img src="icon/y10.png" width="40" height="40" alt="10">
+            <img src="icon/y11.png" width="40" height="40" alt="11">
+            <img src="icon/y12.png" width="40" height="40" alt="12">
+            <img src="icon/y13.png" width="40" height="40" alt="13">
+            <img src="icon/y14.png" width="40" height="40" alt="14">
+            <img src="icon/y15.png" width="40" height="40" alt="15">
+            <img src="icon/y16.png" width="40" height="40" alt="16">
+            <img src="icon/y17.png" width="40" height="40" alt="17">
+            <img src="icon/y18.png" width="40" height="40" alt="18">
+            <img src="icon/y19.png" width="40" height="40" alt="19">
+            <img src="icon/y20.png" width="40" height="40" alt="20">
+            </div>
+        </div>
+
+	<div data-role="content">
+    <ul data-role="listview" data-inset="false">
+        <li data-role="list-divider">acFanta Season 2013-2014  Stage 1</li>
+        <li id="imyTeam"><a href="page/myTeam.html">My Team</a></li>
+        <li id="iPoints"><a href="page/Points.html">Points</a></li>
+        <li id="iTrades"><a href="page/Trades.html">Trades</a></li>
+        <li id="iItems"><a href="page/Items.html">Items</a></li>           
+        <li id="iSetting"><a href="page/Setting.html">Setting</a></li>
+        <li id="iLeagues"><a href="page/Leagues.html">Leagues</a></li>                
+        <li id="iFixtures"><a href="page/Fixtures.html">Fixtures</a></li>
+        <li id="iStat"><a href="page/Stat.html">Stat</a></li>
+        <li id="iHelp"><a href="page/help.html">Help</a></li>              
+        <li><a onClick="showConfirm();">EXIT</a></li>               
+		</ul>
+	</div>
+    
+    <div data-role="fieldcontain" style="overflow:scroll;">
+		<div style="width:410px; height:40px;">&nbsp;&nbsp;
+            <a href="page/myTeam.html"><img src="icon/y01.png" width="40" height="40" alt="01"></a>
+            <a href="page/Points.html"><img src="icon/y02.png" width="40" height="40" alt="02"></a>
+            <a href="page/Trades.html"><img src="icon/y03.png" width="40" height="40" alt="03"></a>
+            <a href="page/Items.html"><img src="icon/y04.png" width="40" height="40" alt="04"></a>
+            <a href="page/Setting.html"><img src="icon/y05.png" width="40" height="40" alt="05"></a>
+            <a href="page/Leagues.html"><img src="icon/y06.png" width="40" height="40" alt="06"></a>
+            <a href="page/Fixtures.html"><img src="icon/y07.png" width="40" height="40" alt="07"></a>
+            <a href="page/Stat.html"><img src="icon/y08.png" width="40" height="40" alt="08"></a>
+            <a href="page/Help.html"><img src="icon/y09.png" width="40" height="40" alt="09"></a>
+		</div>
+    </div>
+   
+</div>
+
+<script>
+$(document).ready(function() {
+
+	var chkWho_url = "http://58.177.246.222:8500/cfide/acTest/acFanta/acSys_proxy.cfm?method=sysWhoLogging&userIMEI="+window.device.uuid;
+//	var chkWho_url = "http://58.177.246.222:8500/cfide/acTest/acFanta/acSys_proxy.cfm?method=sysWhoLogging&userIMEI=ftest02"
+	
+	var res = $.parseJSON(call3_getJSON(chkWho_url, 3000));
+
+	setTimeout(function() {
+		if(res.VALUE == 1) {
+			alert(res.USER);
+			$("#imyTeam a").append(" <span class='iUData'>" + res.USER + "</span>");
+		} else {
+			$("p").html("connection error");
+		}
+	},2000);
+	
+});
+
+</script>   
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+
+<name>acFanta in android beta 1.0</name>
+
+<description>
+acFanta 2013-2014 season 1 
+</description>
+
+<feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device" />
+</feature>
+
+<feature name="SplashScreen">
+    <param name="android-package" value="org.apache.cordova.SplashScreen" />
+</feature>
+
+<gap:splash src="icon\images.jpg" />
+
+<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">	
+	<param name="APP_ID" value="218524318335062" />
+	<param name="APP_Name" value="acFantaHoop" />
+</gap:plugin>
+
+<preference name="phonegap-version" value="3.1.0" />
+<preference name="orientation" value="portrait" />
+<preference name="load-url-timeout" value="50000" />
+
+<access origin="http://192.168.3.2:8500" />
+<access origin="http://58.177.246.222:8500" />
+
+<author href="https://example.com" email="you@example.com">
+AC - ASC
+</author>
+
+</widget>
